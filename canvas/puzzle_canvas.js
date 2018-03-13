@@ -36,7 +36,9 @@ function init(){
   _img = new Image();
   _img.addEventListener('load',onImage,false);
   _img.src = "rickandmorty.jpg";
-  carousel()
+  carouselInterval = setInterval(carousel, 8000); // Change image every 8 seconds
+	countingInterval = setInterval(start_counting, 1000);
+  carousel();
 }
 
 function carousel() {
@@ -93,7 +95,8 @@ function displayID(clicked){
 	seconds = 0;
 	hours = 0;
 	minutes = 0;
-	getValues();
+  carouselInterval = setInterval(carousel, 8000); // Change image every 8 seconds
+  countingInterval = setInterval(start_counting, 1000);
 }
 
 //calcular dimensiones puzzle según las dificultades
@@ -298,7 +301,22 @@ function resetPuzzleAndCheckWin(){
       }
   }
   if(gameWin){
-      setTimeout(gameOver,5000);
+      setTimeout(gameOver,2000);
+      clearInterval(countingInterval); // para iniciar mi contador de nuevo
+    	clearInterval(carouselInterval); // para iniciar mi slider
+    	seconds = 0;
+    	hours = 0;
+    	minutes = 0;
+      carouselInterval = setInterval(carousel, 8000); // Change image every 8 seconds
+      countingInterval = setInterval(start_counting, 1000);
+
+      // hay que hacerlo condicional por si se supera el highscore
+      var nickname = prompt("New Highscore! Write your name", "Your Name");
+      if (nickname != "" && nickname != null) {
+        player = nickname;
+      } else {
+        player = "no name (write yours the next time)";
+      };
   }
 }
 
@@ -307,4 +325,12 @@ function gameOver(){
   document.onmousemove = null;
   document.onmouseup = null;
   initPuzzle();
+}
+
+function showhighscore(){
+	if (player == undefined){
+		alert("No one has played yet!\n Try your best NOW");
+	}else{
+		alert("THE BEST PLAYER IS:\n\n" + player + "\nFinished in: " + highscore);
+	}
 }
