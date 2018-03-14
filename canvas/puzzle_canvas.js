@@ -36,9 +36,7 @@ function init(src){
   _img = new Image();
   _img.addEventListener('load',onImage,false);
   _img.src = src + ".jpg";
-  carousel();
-  carouselInterval = setInterval(carousel, 8000); // Change image every 8 seconds
-	countingInterval = setInterval(start_counting, 1000);
+  getValues();
 }
 
 function carousel() {
@@ -83,6 +81,12 @@ function start_counting(){
 	document.getElementById("counter").innerHTML = counter;
 };
 
+function getValues(){
+  carousel();
+  carouselInterval = setInterval(carousel, 8000); // Change image every 8 seconds
+  countingInterval = setInterval(start_counting, 1000);
+}
+
 // Para seleccionar la imagen de mi slider.
 function displayID(clicked){
 	var change = clicked.src.split("/");
@@ -96,8 +100,7 @@ function displayID(clicked){
 	seconds = 0;
 	hours = 0;
 	minutes = 0;
-  carouselInterval = setInterval(carousel, 8000); // Change image every 8 seconds
-  countingInterval = setInterval(start_counting, 1000);
+  getValues();
 }
 
 //calcular dimensiones puzzle según las dificultades
@@ -303,14 +306,19 @@ function resetPuzzleAndCheckWin(){
   if(gameWin){
       setTimeout(gameOver,2000);
       highscore = String(hours) + ":" + String(minutes) + ":" + String(seconds);
-      clearInterval(countingInterval); // para iniciar mi contador de nuevo
-    	clearInterval(carouselInterval); // para iniciar mi slider
-    	seconds = 0;
-    	hours = 0;
-    	minutes = 0;
-      carouselInterval = setInterval(carousel, 8000); // Change image every 8 seconds
-      countingInterval = setInterval(start_counting, 1000);
+      var win = document.createElement("img");
+      win.src = "winner.gif";
+      win.id = "winner";
+      win.width = window.innerWidth;
+      win.height = window.innerHeight;
+      //hideimage();
+      win.setAttribute("onclick","hideimage()");
+      document.getElementById("slider").appendChild(win);
+  }
+}
 
+function hideimage(){
+      document.getElementById("slider").removeChild(document.getElementById("winner"));
       // hay que hacerlo condicional por si se supera el highscore
       var nickname = prompt("New Highscore! Write your name", "Your Name");
       if (nickname != "" && nickname != null) {
@@ -318,7 +326,13 @@ function resetPuzzleAndCheckWin(){
       } else {
         player = "no name (write yours the next time)";
       };
-  }
+      // hay que hacerlo condicional por si se supera el highscore
+      images = [];
+      clearInterval(countingInterval); // para iniciar mi contador de nuevo
+      seconds = 0;
+      hours = 0;
+      minutes = 0;
+      getValues();
 }
 
 function gameOver(){
