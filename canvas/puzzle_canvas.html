@@ -7,7 +7,7 @@
     <title> Práctica Puzzle Hugo Bravo Diaz</title>
 </head>
 
-<body onload="init();">
+<body onload="init('peaky');">
   <div class="mainslider">
     <img onclick="displayID(this)" class="slide1" id="dimebag" src="dimebag500.jpg" width="200px" height="140px">
     <img onclick="displayID(this)" class="slide2" id="gow" src="gow500.jpg" width="200px" height="140px">
@@ -15,9 +15,9 @@
     <img onclick="displayID(this)" class="slide1" id="fender" src="fender500.jpg" width="200px" height="140px">
     <img onclick="displayID(this)" class="slide2" id="rickandmorty" src="rickandmorty500.jpg" width="200px" height="140px">
     <img onclick="displayID(this)" class="slide3" id="pantera" src="pantera500.jpg" width="200px" height="140px">
-    <img onclick="displayID(this)" class="slide1" id="basquiat" src="basquiat.jpg" width="200px" height="140px">
-    <img onclick="displayID(this)" class="slide2" id="mykonos" src="mykonos.jpg" width="200px" height="140px">
-    <img onclick="displayID(this)" class="slide3" id="trippy" src="trippy.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide1" id="motorhead" src="motorhead.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide2" id="peaky" src="peaky.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide3" id="vikings" src="vikings.jpg" width="200px" height="140px">
 
   </div>
 
@@ -25,9 +25,10 @@
   <p id="special">Hugo Bravo Diaz </p>
   <p id="timer"> YOUR TIME <span id="counter">0:0:0</span></p>
   <button class="button" onclick="showhighscore()"> SHOW HIGHSCORE </button>
-  <img id="imageType" src="rickandmorty500.jpg" width="500px" height="300px">
+  <img id="imageType" src="peaky.jpg" width="500px" height="300px">
 
     <canvas id="canvas"></canvas>
+    <div id="slider"></div>
 </body>
 
 </html>

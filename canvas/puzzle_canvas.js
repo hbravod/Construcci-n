@@ -32,13 +32,13 @@ var highscore;
 var player;
 
 //cargar imagen
-function init(){
+function init(src){
   _img = new Image();
   _img.addEventListener('load',onImage,false);
-  _img.src = "rickandmorty.jpg";
+  _img.src = src + ".jpg";
+  carousel();
   carouselInterval = setInterval(carousel, 8000); // Change image every 8 seconds
 	countingInterval = setInterval(start_counting, 1000);
-  carousel();
 }
 
 function carousel() {
@@ -87,6 +87,7 @@ function start_counting(){
 function displayID(clicked){
 	var change = clicked.src.split("/");
 	change = change[change.length-1].split(".")[0];
+  init(change);
 	clicked.src = document.getElementById("imageType").src;
 	document.getElementById("imageType").src = change + ".jpg";
 	images = [];
@@ -196,14 +197,14 @@ function shuffleArray(o){
 // determina qué pieza ha sido clickada.
 function onPuzzleClick(e){
   if(e.layerX || e.layerX == 0){
-      _mouse.x = e.layerX - _canvas.offsetLeft + 500;
+      _mouse.x = e.layerX - _canvas.offsetLeft + 500; // 500 y 210 por el ancho y alto de nuestro canvas.
       _mouse.y = e.layerY - _canvas.offsetTop + 210;
   }
   else if(e.offsetX || e.offsetX == 0){
       _mouse.x = e.offsetX - _canvas.offsetLeft + 500;
       _mouse.y = e.offsetY - _canvas.offsetTop + 210;
   }
-  _currentPiece = checkPieceClicked();
+  _currentPiece = checkPieceClicked(e);
   if(_currentPiece != null){
       _stage.clearRect(_currentPiece.xPos,_currentPiece.yPos,_pieceWidth,_pieceHeight); // limpia  el lienzo cuando clickas una imagen.
       _stage.save(); // guardamos el contxto del canvas, por eso se ve difuminada la pieza que has clickado.
@@ -216,21 +217,20 @@ function onPuzzleClick(e){
 }
 
 // busca la pieza que clickas.
-function checkPieceClicked(){
+function checkPieceClicked(e){
   var i;
   var piece;
-  for(i = 0;i < _pieces.length;i++){
-      piece = _pieces[i];
-      if(_mouse.x < piece.xPos || _mouse.x > (piece.xPos + _pieceWidth) || _mouse.y < piece.yPos || _mouse.y > (piece.yPos + _pieceHeight)){
-          //PIECE NOT HIT
-      }
-      else{
-          return piece;
-      }
+  if((e.pageX > 500 && e.pageX < (500 + _puzzleWidth)) && (e.pageY >  210 && e.pageY < (210 + _puzzleHeight))){
+    for(i = 0;i < _pieces.length;i++){
+        piece = _pieces[i];
+        if(_mouse.x > piece.xPos && _mouse.x < (piece.xPos + _pieceWidth) && _mouse.y > piece.yPos && _mouse.y < (piece.yPos + _pieceHeight)){
+            return piece;
+        }
+    }
   }
   return null;
 }
-// Quitar función
+
 function updatePuzzle(e){
   _currentDropPiece = null;
   if(e.layerX || e.layerX == 0){
@@ -302,6 +302,7 @@ function resetPuzzleAndCheckWin(){
   }
   if(gameWin){
       setTimeout(gameOver,2000);
+      highscore = String(hours) + ":" + String(minutes) + ":" + String(seconds);
       clearInterval(countingInterval); // para iniciar mi contador de nuevo
     	clearInterval(carouselInterval); // para iniciar mi slider
     	seconds = 0;

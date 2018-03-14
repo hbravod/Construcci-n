@@ -120,7 +120,7 @@ canvas{
   position: absolute;
   top: 210px;
 	left: 500px;
-  width: 700px;
-  height: 500px;
+  /*width: 700px;*/
+  /*height: 500px;*/
 	background-color: white;
 }
