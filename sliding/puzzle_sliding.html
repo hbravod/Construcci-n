@@ -2,26 +2,41 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>The Puzzle</title>
-    <title> Práctica Puzzle Hugo Bravo Diaz</title>
+    <title>The Puzzle Canvitas</title>
+    <title>Práctica Puzzle Hugo Bravo Diaz</title>
+    <link rel="stylesheet" href="puzzle.css">
+
+
 </head>
 
-<body>
-  <div id="title">
-    <h2>Sliding Puzzle</h2>
-  </div>
-    <div id="slider">
-      <form>
-        <label>Easy</label>
-        <input id="scale" value="4" min="3" max="5" step="1" type="range">
-        <label>Hard</Hard>
-      </form>
-      <br>
+<body onload="init('a');">
+  <div class="mainslider">
+    <img onclick="displayID(this)" class="slide1" id="a" src="a.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide2" id="gow" src="gow.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide3" id="soa" src="soa.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide1" id="fender" src="fender.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide2" id="rickandmorty" src="rickandmorty.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide3" id="pantera" src="pantera.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide1" id="motorhead" src="motorhead.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide2" id="peaky" src="peaky.jpg" width="200px" height="140px">
+    <img onclick="displayID(this)" class="slide3" id="vikings" src="vikings.jpg" width="200px" height="140px">
+
+
     </div>
+
+
+    <p id="title"> >Puzzle Game< <p>
+    <p id="special"> Hugo Bravo Díaz </p>
+    <p id="timer"> YOUR TIME <span id="counter">0:0:0</span></p>
+    <button class="button" onclick="showhighscore()"> SHOW HIGHSCORE </button>
+
     <div id="main" class="main">
-      <canvas id="puzzle" width="480px" height="480px"></canvas>
+      <img id="imageType" src="a.jpg" width="400px" height="300px">
+      <canvas id="puzzle" ></canvas>
     </div>
-    <script src="sliding.js"></script>
+
+    <script src="misliding.js"></script>
+    <div id="slider"></div>
 </body>
 
 </html>
