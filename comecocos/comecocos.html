@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pac-man</title>
+        <style>
+            body {
+                background-image: url("fondo.jpg");
+                /*height: 100%;*/
+                /*width: 800px;*/
+            }
+            #game{
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 75%;
+                transform: translate(-60%, -60%);
+            }
+            p{
+                position: relative;
+                font-family: italic;
+                margin-left: 0px;
+                color: white;
+            }
+            .titulo{
+              display: block;
+              position: fixed;
+              margin-top: 0px;
+              margin-left:0px;
+            }
+            #blue{
+              margin-top: 10px;
+              margin-left: 200px;
+            }
+            p#color{
+              margin-top: 100px;
+              margin-left: 200px;
+              color: black;
+            }
+
+        </style>
+    </head>
+    <body onload="startGame()">
+        <div class="mainslider">
+          <p id="color"> Elige un color, primo: </p>
+          <img onclick="displayID(this)" class="slide1" id="blue" src="bluepacman.png" width="60px" height="60px">
+          <img onclick="displayID(this)" class="slide2" id="red" src="redpacman.png" width="60px" height="60px">
+          <img onclick="displayID(this)" class="slide2" id="green" src="greenpacman.png" width="60px" height="60px">
+        </div>
+        <div class="titulo">
+          </div>
+        <canvas id="game" width="700" height="500"></canvas>
+
+    <script type="text/javascript" src="comecocos.js">
+
+    </script>
+    </body>
+</html>
