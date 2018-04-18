@@ -1,22 +1,22 @@
 function GameMapConstructor(wallSrc, cocoSrc, floorSrc, fruitSrc) {
-    this.gameAreaMatrix = [                                                     // límite horizontal
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 3, 4, 1],
-      [1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 4, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 4, 1, 2, 2, 2, 2, 1],
-      [1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1],
-      [1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 1],
-      [1, 4, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 2, 4, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    this.gameAreaMatrix = [                                                       // límite horizontal
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 3, 4, 1],
+        [1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 4, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 1],
+        [1, 4, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 2, 4, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ]
     this.numColumns = 25;
     this.numRows = 17;
@@ -47,9 +47,9 @@ function GameMapConstructor(wallSrc, cocoSrc, floorSrc, fruitSrc) {
                 }else if (this.gameAreaMatrix[i][j]==3) {//cocazo
                     ctx.fillStyle =this.cocoStyle;
                     ctx.fillRect(j*Math.floor(this.basicWidth)+4, i*Math.floor(this.basicHeight)+4, this.basicWidth/2, this.basicHeight/2);
-                }else if (this.gameAreaMatrix[i][j]==4) {//cherry rica
+                }else if (this.gameAreaMatrix[i][j]==4) {//sandiita rica
                     ctx.fillStyle =this.cocoStyle;
-                    ctx.drawImage(this.fruit, j*Math.floor(this.basicWidth)-0, i*Math.floor(this.basicHeight)-0, 30, 30);
+                    ctx.drawImage(this.fruit, j*Math.floor(this.basicWidth)-40, i*Math.floor(this.basicHeight)-40, 70, 70);
                 }
             }
         }
@@ -80,11 +80,12 @@ var hours = 0;
 var totaltime = 0;
 var pause = false;
 
+
 function start_counting(){
-  totaltime = seconds + 60 * minutes + 3600 * hours;
+  totaltime = seconds + 60*minutes + 3600*hours;
   var counter = hours + ":" + minutes + ":" + seconds;
-  seconds += 1;
-  if (seconds == 60) {
+	seconds += 1;
+	if (seconds == 60) {
 		minutes += 1;
 		seconds = 0;
 		if (minutes == 60){
@@ -113,7 +114,7 @@ function component(width, height, color, x, y) {
     }
 }
 
-// Letra de las puntuaciones.
+//LA LETRA DE LAS PUNTUACIONES
 function TextComponent(size, font, x , y, color) {
     this.size = size; // en pixeles
     this.font = font;
@@ -161,6 +162,7 @@ function DynamicElemt(width, height, x , y) {
     }
 }
 
+
 var gameArea = {
     canvas:  document.getElementById("game"),
     start: function() {
@@ -168,24 +170,25 @@ var gameArea = {
         //Contexto, control movimiento player, y creacion de objeto para mapa del juego
         this.ctx = this.canvas.getContext('2d');
         window.addEventListener("keydown", function(event){keyHandler(event, pacman)}, false);
-        var gameMatrix = new GameMapConstructor("vaporWall.jpg", "cocoNeon.png", "vaporFloor.jpg", "guinda.png");
+        var gameMatrix = new GameMapConstructor("vaporWall.jpg", "cocoNeon.png", "vaporFloor.jpg", "sandia.png");
         //Creamos pacman a partir de Dynamic element y completamos su objeto con funciones específicas
-        pacman = new DynamicElemt(27, 27, 100, 100); // tamaño y posición
-        pacman.gameElement.src = "pacman.png"
+        pacman = new DynamicElemt(27, 27, 100, 100);
+        pacman.gameElement.src = "pacman.png";
         pacman.fruit = false; //control poder de fruta
+
 
 
         pacman.closeMouth = function() {
             pacman.gameElement.src = "pacman2.png"
-            if (change != ""){
-              pacman.gameElement.src = change + ".png"
+            if (change!=""){
+              pacman.gameElement.src = change + ".png";
             }
             setTimeout(pacman.openMouth, 300)
         }
         pacman.openMouth = function() {
             pacman.gameElement.src = "pacman.png"
-            if (change != ""){
-              pacman.gameElement.src = change + "2.png"
+            if (change!=""){
+              pacman.gameElement.src = change+ "2.png";
             }
             setTimeout(pacman.closeMouth, 300)
         }
@@ -217,27 +220,31 @@ var gameArea = {
         openingSound.play();
         //openingSound.stop();
 
-        var score = new TextComponent("30px", "Arial", 0, 27, "pink"); // contador de puntos
+        var score = new TextComponent("30px", "Arial", 0, 27, "pink");
         pacman.scoreCount = 0; //añadimos scoreCount a pacman, facilidad posterior en choques
         score.text = "SCORE: " + pacman.scoreCount;
+
 
         var soundtrack = new Sound("soundtrack1.mp3");
         soundtrack.play();
 
+
         this.updateGamupdateGameeInterval = setInterval(function(){if (!pause){updateGame(gameMatrix, pacman, ghostsArray, score)}}, 20);
         countingInterval = setInterval(function(){if (!pause){start_counting()}}, 1000);
-    },
 
+
+
+    },
     clear: function() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
     stop : function() {
-      clearInterval(this.updateGameInterval);
-      clearInterval(countingInterval);
-      totaltime = 0;
-      seconds = 0;
-      hours = 0;
-      minutes = 0;
+        totaltime = 0;
+        clearInterval(this.updateGameInterval);
+        clearInterval(countingInterval);
+        seconds = 0;
+      	hours = 0;
+      	minutes = 0;
     }
 }
 
@@ -258,29 +265,29 @@ function buttonPause (){
 
 }
 
-function keyHandler(event, pacman) { // Aquí cambiamos la velocidad del Pacman
+function keyHandler(event, pacman) {
 
     switch(event.key) {
         case "ArrowUp":
-            pacman.speed = 2;
+            pacman.speed = 5;
             pacman.angle = Math.PI/2;
             pacman.viewAngle = -Math.PI/2;
             pacman.rote();
             break;
         case "ArrowDown":
-            pacman.speed = 2;
+            pacman.speed = 5;
             pacman.angle = -Math.PI/2;
             pacman.viewAngle = Math.PI/2;
             pacman.rote()
             break;
         case "ArrowLeft":
-            pacman.speed = 2;
+            pacman.speed = 5;
             pacman.angle = Math.PI;
             pacman.viewAngle = Math.PI;
             pacman.rote()
             break;
         case "ArrowRight":
-            pacman.speed = 2;
+            pacman.speed = 5;
             pacman.angle = 0;
             pacman.viewAngle = 0;
             pacman.rote()
@@ -338,32 +345,23 @@ function crashWithMapControl(mapa, obj, isPlayer) {
         }
     }
     if(mapValue == 4 && isPlayer) {
-        var height = [Math.floor((obj.y+5)/mapa.basicHeight)];
-        var width = [Math.floor((obj.x)/mapa.basicWidth)];
         mapa.gameAreaMatrix[Math.floor((obj.y+5)/mapa.basicHeight)][Math.floor((obj.x)/mapa.basicWidth)] = 0;
-        obj.fruit = true; // hace que los antasmas cambien a azul.
+        obj.fruit = true;
         var p = document.createElement("p");
         var message = document.createTextNode("HUNT THE GHOSTS!!!!");
-        var fruitSound = new Sound("soundfruit.mp3");
-        fruitSound.play();
-        var num = Math.floor(Math.random() * 10);
-        setTimeout(function mens(){ // eliminamos mensaje "Hunt the ghost"
-          p.removeChild(message);
-          mapa.gameAreaMatrix[height][width] = 4;
-        },(1000 * num))
+
         p.appendChild(message);
         p.setAttribute('id', 'message')
-        p.style.color = "green";
+        p.style.color = "black";
         document.body.appendChild(p);
         //console.log(p.childNodes[0])
-        p.childNodes[0].value = message; // Ni idea de esto.
+        //p.childNodes[0].value = message;// NO SE PARA QUE SIRVE Y LO HE QUITAAAAO
     }
     return crashed;
 }
-
 function paco (a){
   setTimeout(function jejejej(){
-    a[0].gameElement.src = "./blueGhost.png"; // aquí le pasamos la dirección de los fantasmas.
+    a[0].gameElement.src = "./blueGhost.png";
     a[1].gameElement.src = "./redGhost.png";
     a[2].gameElement.src = "./pinkGhost.png";
     a[3].gameElement.src = "./clydeGhost.png";
@@ -384,25 +382,7 @@ function updateGame(mapa, pacman, ghostsArray, score) {
     mapa.updateMap(gameArea.ctx);
     score.text = "SCORE: " + pacman.scoreCount;
     score.update()
-
-    if (totaltime >= 3){ // Tiempo máximo de juego en segundos
-      gameArea.stop()
-      var timegif = document.createElement("img");
-      timegif.src = "time.gif";
-      timegif.id = "winner";
-      timegif.width = window.innerWidth;
-      timegif.height = window.innerHeight;
-      //win.setAttribute("onclick", "hideimage()");
-      document.getElementById("slider").appendChild(timegif);
-      if (window.confirm("¡Se te acabó el tiempo! ¿Juegas de nuevo?") == true) {
-        location.reload(true);
-      }
-      else{
-        location.reload(true);
-      }
-    }
-
-    if (pacman.scoreCount == 2210){// Puntuación máxima -> 2210
+    if (pacman.scoreCount == 70){//SON LAS PUNTUACIONES MAXIMAS 2170
       gameArea.stop();
 
       var win = document.createElement("img");
@@ -412,16 +392,19 @@ function updateGame(mapa, pacman, ghostsArray, score) {
       win.height = window.innerHeight;
       //win.setAttribute("onclick", "hideimage()");
       document.getElementById("slider").appendChild(win);
+      console.log("puuuuuuuuuta");
 
-      if(window.confirm("¡GANASTE! ¿Quieres volver a jugar?") == true){
+      if(window.confirm("¿Quieres volver a jugar?") == true){
         location.reload(true);
         //gameArea.start();
       }
-      else{
-        location.reload(true);
+    }
+    if (totaltime >= 3000){ //PONER EL TIEMPO QUE QUERAMOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOS
+      gameArea.stop()
+      if (window.confirm("Perdiste PENDEJO!, ¿juegas maś?") == true) {
+          gameArea.start();
       }
     }
-
     //movimiento y dibujado pacman
     pacman.move();
     crashWithMapControl(mapa, pacman, true)
@@ -449,18 +432,8 @@ function updateGame(mapa, pacman, ghostsArray, score) {
                 element.alive = false;
             }else{
                 gameArea.stop()
-                var loser = document.createElement("img");
-                loser.src = "loser.gif";
-                loser.id = "winner";
-                loser.width = window.innerWidth;
-                loser.height = window.innerHeight;
-                //win.setAttribute("onclick", "hideimage()");
-                document.getElementById("slider").appendChild(loser);
-                if (window.confirm("Perdiste, puto LOSER ¿Quieres volver a jugar?") == true) {
-                    location.reload(true);
-                }
-                else{
-                  location.reload(true);
+                if (window.confirm("Perdiste, ¿juegas maś?") == true) {
+                    gameArea.start();
                 }
             }
         }
