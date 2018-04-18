@@ -1,25 +1,22 @@
-var pacman = "";
-var change = "";
-
 function GameMapConstructor(wallSrc, cocoSrc, floorSrc, fruitSrc) {
     this.gameAreaMatrix = [                                                     // límite horizontal
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 3, 4, 1],
-        [1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 4, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 1],
-        [1, 4, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 2, 4, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 3, 4, 1],
+      [1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 4, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1],
+      [1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 1],
+      [1, 4, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 2, 4, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ]
     this.numColumns = 25;
     this.numRows = 17;
@@ -31,7 +28,7 @@ function GameMapConstructor(wallSrc, cocoSrc, floorSrc, fruitSrc) {
     this.wall.src = wallSrc;
     this.coco = new Image();
     this.coco.src = cocoSrc;
-    this.cocoStyle = "red";
+    this.cocoStyle = "white";
     this.floor = new Image();
     this.floor.src = floorSrc;
     this.fruit = new Image();
@@ -59,15 +56,6 @@ function GameMapConstructor(wallSrc, cocoSrc, floorSrc, fruitSrc) {
     }
 }
 
-function displayID(clicked){
-  change = clicked.src.split("/");
-	change = change[change.length-1].split(".")[0];
-  init(change);
-  clicked.src = document.getElementById("imageType").src;
-	document.getElementById("imageType").src = change + ".jpg";
-}
-
-
 function Sound(src) {
     this.Sound = document.createElement("audio");
     this.Sound.src = src;
@@ -82,6 +70,31 @@ function Sound(src) {
         this.Sound.pause();
     }
 }
+
+var change="";
+var pacman;
+var countingInterval = 0;
+var seconds = 0;
+var minutes = 0;
+var hours = 0;
+var totaltime = 0;
+var pause = false;
+
+function start_counting(){
+  totaltime = seconds + 60 * minutes + 3600 * hours;
+  var counter = hours + ":" + minutes + ":" + seconds;
+  seconds += 1;
+  if (seconds == 60) {
+		minutes += 1;
+		seconds = 0;
+		if (minutes == 60){
+			hours += 1;
+			minutes = 0;
+		}
+	}
+	document.getElementById("counter").innerHTML = counter;
+
+};
 
 function component(width, height, color, x, y) {
     this.width = width;
@@ -100,7 +113,7 @@ function component(width, height, color, x, y) {
     }
 }
 
-
+// Letra de las puntuaciones.
 function TextComponent(size, font, x , y, color) {
     this.size = size; // en pixeles
     this.font = font;
@@ -116,7 +129,7 @@ function TextComponent(size, font, x , y, color) {
 
 function DynamicElemt(width, height, x , y) {
     this.gameElement = new Image();
-    //this.gameElement.src = "nave.png";
+    this.gameElement.src = "nave.png";
     this.width = width;
     this.height = height;
     this.x = x;
@@ -148,35 +161,33 @@ function DynamicElemt(width, height, x , y) {
     }
 }
 
-function startGame(){
-    gameArea.start();
-}
-
 var gameArea = {
     canvas:  document.getElementById("game"),
     start: function() {
+        //clearInterval(countingInterval);
         //Contexto, control movimiento player, y creacion de objeto para mapa del juego
         this.ctx = this.canvas.getContext('2d');
         window.addEventListener("keydown", function(event){keyHandler(event, pacman)}, false);
         var gameMatrix = new GameMapConstructor("vaporWall.jpg", "cocoNeon.png", "vaporFloor.jpg", "sandia.png");
         //Creamos pacman a partir de Dynamic element y completamos su objeto con funciones específicas
-        pacman = new DynamicElemt(27, 27, 100, 100);
+        pacman = new DynamicElemt(27, 27, 100, 100); // tamaño y posición
         pacman.gameElement.src = "pacman.png"
         pacman.fruit = false; //control poder de fruta
+
+
         pacman.closeMouth = function() {
             pacman.gameElement.src = "pacman2.png"
-            setTimeout(pacman.openMouth, 300)
             if (change != ""){
-              pacman.gameElement.src = change + "2.png"
+              pacman.gameElement.src = change + ".png"
             }
+            setTimeout(pacman.openMouth, 300)
         }
         pacman.openMouth = function() {
             pacman.gameElement.src = "pacman.png"
-            setTimeout(pacman.closeMouth, 300)
             if (change != ""){
               pacman.gameElement.src = change + "2.png"
             }
-
+            setTimeout(pacman.closeMouth, 300)
         }
         pacman.closeMouth();
 
@@ -185,6 +196,7 @@ var gameArea = {
         var mapWidthCenter = gameMatrix.numColumns*gameMatrix.basicWidth/2;
         var mapHeightCenter = gameMatrix.numRows*gameMatrix.basicHeight/2;
         var blueGhost = new DynamicElemt(32, 32, 250, 328);
+
         blueGhost.gameElement.src = "blueGhost.png";
         var redGhost = new DynamicElemt(32, 32, 100, 200);
         redGhost.angle = Math.PI/2; //Math.PI/2 para movimiento hacia arriba y abajo
@@ -203,28 +215,50 @@ var gameArea = {
 
         var openingSound = new Sound("pacManStart.mp3");
         openingSound.play();
+        //openingSound.stop();
 
-        var score = new TextComponent("30px", "Arial", 0, 27, "pink");
+        var score = new TextComponent("30px", "Arial", 0, 27, "pink"); // contador de puntos
         pacman.scoreCount = 0; //añadimos scoreCount a pacman, facilidad posterior en choques
         score.text = "SCORE: " + pacman.scoreCount;
-        if (window.confirm("¿Juegas o qué?") == true) {
-            openingSound.stop();
-            var soundtrack = new Sound("soundtrack1.mp3");
-            soundtrack.play();
 
-            this.updateGameInterval = setInterval(function(){updateGame(gameMatrix, pacman, ghostsArray, score)}, 20);
-        }
+        var soundtrack = new Sound("soundtrack1.mp3");
+        soundtrack.play();
+
+        this.updateGamupdateGameeInterval = setInterval(function(){if (!pause){updateGame(gameMatrix, pacman, ghostsArray, score)}}, 20);
+        countingInterval = setInterval(function(){if (!pause){start_counting()}}, 1000);
     },
+
     clear: function() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
     stop : function() {
-        clearInterval(this.updateGameInterval);
-        //clearInterval(this.asteroidsInterval);
+      totaltime = 0;
+      clearInterval(this.updateGameInterval);
+      clearInterval(countingInterval);
+      seconds = 0;
+      hours = 0;
+      minutes = 0;
     }
 }
 
-function keyHandler(event, pacman) {
+function buttonStart (){
+    gameArea.stop();
+    gameArea.start();
+}
+
+function buttonPause (){
+
+    if (!pause){
+      pause = true;
+
+    }else{
+      pause = false;
+
+    }
+
+}
+
+function keyHandler(event, pacman) { // Aquí cambiamos la velocidad del Pacman
 
     switch(event.key) {
         case "ArrowUp":
@@ -305,18 +339,37 @@ function crashWithMapControl(mapa, obj, isPlayer) {
     }
     if(mapValue == 4 && isPlayer) {
         mapa.gameAreaMatrix[Math.floor((obj.y+5)/mapa.basicHeight)][Math.floor((obj.x)/mapa.basicWidth)] = 0;
-        obj.fruit = true;
+        obj.fruit = true; // hace que los antasmas cambien a azul.
         var p = document.createElement("p");
-        //var message = document.createTextNode("HUNT THE GHOSTS!!!!");
+        var message = document.createTextNode("HUNT THE GHOSTS!!!!");
 
         p.appendChild(message);
         p.setAttribute('id', 'message')
-        p.style.color = "yellow";
+        p.style.color = "green";
         document.body.appendChild(p);
-        console.log(p.childNodes[0])
-        p.childNodes[0].value = message;
+        //console.log(p.childNodes[0])
+        //p.childNodes[0].value = message; Ni idea de esto.
+        //var refruit =
+        if (countingInterval == 10){
+          obj.fruit = true;
+        }
     }
     return crashed;
+}
+
+function paco (a){
+  setTimeout(function jejejej(){
+    a[0].gameElement.src = "./blueGhost.png"; // aquí le pasamos la dirección de los fantasmas.
+    a[1].gameElement.src = "./redGhost.png";
+    a[2].gameElement.src = "./pinkGhost.png";
+    a[3].gameElement.src = "./clydeGhost.png";
+    a[0].weak = false;
+    a[1].weak = false;
+    a[2].weak = false;
+    a[3].weak = false;
+  },5000);
+
+  //return a;
 }
 
 function updateGame(mapa, pacman, ghostsArray, score) {
@@ -326,15 +379,36 @@ function updateGame(mapa, pacman, ghostsArray, score) {
     gameArea.ctx.drawImage(mapa.floor, 0,0, gameArea.canvas.width, gameArea.canvas.height);
     mapa.updateMap(gameArea.ctx);
     score.text = "SCORE: " + pacman.scoreCount;
-    score.update();
-
-    if (pacman.scoreCount == 2170){
+    score.update()
+    if (totaltime >= 5){ // Tiempo máximo de juego en segundos
       gameArea.stop()
-      if (window.confirm("GANASTE, CAMPEÓN") == true) {
-          gameArea.start();
+      var timegif = document.createElement("img");
+      timegif.src = "time.gif";
+      timegif.id = "winner";
+      timegif.width = window.innerWidth;
+      timegif.height = window.innerHeight;
+      //win.setAttribute("onclick", "hideimage()");
+      document.getElementById("slider").appendChild(timegif);
+      if (window.confirm("¡Se te acabó el tiempo! ¿Juegas de nuevo?") == true) {
+        location.reload(true);
       }
     }
+    if (pacman.scoreCount == 300){// Puntuación máxima -> 2170
+      gameArea.stop();
 
+      var win = document.createElement("img");
+      win.src = "winner.gif";
+      win.id = "winner";
+      win.width = window.innerWidth;
+      win.height = window.innerHeight;
+      //win.setAttribute("onclick", "hideimage()");
+      document.getElementById("slider").appendChild(win);
+
+      if(window.confirm("¡GANASTE! ¿Quieres volver a jugar?") == true){
+        location.reload(true);
+        //gameArea.start();
+      }
+    }
 
     //movimiento y dibujado pacman
     pacman.move();
@@ -342,27 +416,36 @@ function updateGame(mapa, pacman, ghostsArray, score) {
     pacman.update();
     //control y dibujado de los fantasmas
     ghostsArray.forEach(function(element){
-        element.move()
+        element.move();
+
         if (crashWithMapControl(mapa, element, false)) {
             var direction = Math.floor(Math.random() * 4)
             element.angle += Math.PI/2 * direction;
             element.rote();
         }
-
-        if (pacman.fruit && !element.weak){ // como una fruta
-            element.angle += Math.PI; // cambio de sentido del fantasma
+        if (pacman.fruit && !element.weak){
+            element.angle += Math.PI; // cambio de sentido
             element.rote();
             element.gameElement.src = "oldGhost.gif";
             element.weak = true;
-            // añadir contador para que pasados 0-10 segundos cambie a fantasma normal.
+            paco(ghostsArray);
+
         }
+
         if (crash(element, pacman)){
             if (element.weak){
                 element.alive = false;
             }else{
                 gameArea.stop()
-                if (window.confirm("JA! Perdiste, loser ¿juegas maś?") == true) {
-                    gameArea.start();
+                var loser = document.createElement("img");
+                loser.src = "loser.gif";
+                loser.id = "winner";
+                loser.width = window.innerWidth;
+                loser.height = window.innerHeight;
+                //win.setAttribute("onclick", "hideimage()");
+                document.getElementById("slider").appendChild(loser);
+                if (window.confirm("Perdiste, puto LOSER ¿Quieres volver a jugar?") == true) {
+                    location.reload(true);
                 }
             }
         }
@@ -370,11 +453,10 @@ function updateGame(mapa, pacman, ghostsArray, score) {
             element.update();
         }
     });
+    pacman.fruit = false;
 
 }
 
-
-/*
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -384,8 +466,25 @@ function drag(ev) {
 }
 
 function drop(ev) {
+
+    var anterior = document.getElementById("drag4").src;
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
+    change = ev.target.appendChild(document.getElementById(data)).src;
+    document.getElementById("drag4").src = change;
+    change = change.split("/");
+  	change = change[change.length-1].split(".")[0];
+
+    var input = document.createElement("img");
+    input.setAttribute("id", data);
+    input.setAttribute("draggable", "true");
+    input.setAttribute("ondragstart", "drag(event)");
+    input.setAttribute("src", anterior);
+    input.setAttribute("width", "100px");
+    input.setAttribute("height", "100px");
+    $(".añadidos").appendChild(input);
+    function $ (selector){
+      return document.querySelector(selector);
+    }
 }
-*/

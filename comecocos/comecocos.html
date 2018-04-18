@@ -5,8 +5,8 @@
         <title>Pac-man</title>
         <style>
             body {
-                background-image: url("fondo.jpg");
-                /*height: 100%;*/
+                /*background-image: url("fondo.jpg");*/
+                height: 100%;
                 /*width: 800px;*/
             }
             #game{
@@ -20,7 +20,6 @@
                 position: relative;
                 font-family: italic;
                 margin-left: 0px;
-                color: white;
             }
             .titulo{
               display: block;
@@ -28,31 +27,43 @@
               margin-top: 0px;
               margin-left:0px;
             }
-            #blue{
-              margin-top: 10px;
-              margin-left: 200px;
-            }
-            p#color{
-              margin-top: 100px;
-              margin-left: 200px;
-              color: black;
+            #div1 {
+              width: 110px;
+              height: 110px;
+              padding: 10px;
+              border: 1px solid #aaaaaa;
             }
 
         </style>
     </head>
-    <body onload="startGame()">
-        <div class="mainslider">
-          <p id="color"> Elige un color, primo: </p>
-          <img onclick="displayID(this)" class="slide1" id="blue" src="bluepacman.png" width="60px" height="60px">
-          <img onclick="displayID(this)" class="slide2" id="red" src="redpacman.png" width="60px" height="60px">
-          <img onclick="displayID(this)" class="slide2" id="green" src="greenpacman.png" width="60px" height="60px">
+    <body >
+      <div id="slider">
+
+      </div>
+
+      <div class="mainslider">
+        <p id="timer"> YOUR TIME <span id="counter">0:0:0</span></p>
+        <div class="añadidos">
+        <img id="drag1" draggable="true" ondragstart="drag(event)" src="bluepacman.png" width="100px" height="100px">
+        <img id="drag2" draggable="true" ondragstart="drag(event)" src="greenpacman.png" width="100px" height="100px">
+        <img id="drag3" draggable="true" ondragstart="drag(event)" src="redpacman.png" width="100px" height="100px">
         </div>
+        <!-- <img id="drag4" draggable="true" ondragstart="drag(event)" src="pacman.png" width="100px" height="100px"> -->
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <img id="drag4" draggable="true" ondragstart="drag(event)" src="pacman.png" width="100px" height="100px">
+        </div>
+        <button type="button" onclick="buttonStart()">Start</button>
+        <button type="button" onclick="buttonPause()">Pause/Restart</button>
+      </div>
+
+      <div class="jeje">
         <div class="titulo">
-          </div>
+        </div>
         <canvas id="game" width="700" height="500"></canvas>
 
-    <script type="text/javascript" src="comecocos.js">
 
-    </script>
+      </div>
+      <script type="text/javascript" src="comecocos.js"></script>
+
     </body>
 </html>
